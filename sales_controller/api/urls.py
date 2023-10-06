@@ -7,6 +7,7 @@ router.register("products", views.ProductViewSet, basename='products')
 router.register("customers", views.CustomerViewSet, basename='customers')
 router.register("sellers", views.SellerViewSet, basename='sellers')
 router.register("sale", views.SaleViewSet, basename='sale')
+router.register("comission-settings", views.ComissionViewSet, basename='comission-settings')
 urlpatterns = [
     path('', include(router.urls)),
     path('seller-commissions/', views.SellerCommissionViewSet.as_view())

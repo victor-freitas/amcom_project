@@ -5,6 +5,7 @@ class Product(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()
     price = models.DecimalField(max_digits=10, decimal_places=2)
+    quantity = models.PositiveIntegerField(default=0)
     
     def __str__(self):
         return self.name
@@ -21,8 +22,8 @@ class Customer(models.Model):
 
 class CommissionSettings(models.Model):
     day_of_week = models.CharField(max_length=10, unique=True)
-    min_commission = models.DecimalField(max_digits=10, decimal_places=2)
-    max_commission = models.DecimalField(max_digits=10, decimal_places=2)
+    min_commission = models.DecimalField(max_digits=4, decimal_places=2)
+    max_commission = models.DecimalField(max_digits=4, decimal_places=2)
     
     def __str__(self):
         return self.day_of_week
@@ -44,6 +45,7 @@ class Sale(models.Model):
     sale_date = models.DateField()
     sale_amount = models.DecimalField(max_digits=10, decimal_places=2)
     commission_settings = models.ForeignKey(CommissionSettings, on_delete=models.SET_NULL, null=True, blank=True)
+    sale_quantity = models.PositiveIntegerField(default=0)
 
     def __str__(self):
         return f"Venda de {self.product} para {self.customer} feita por {self.seller}"
