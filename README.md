@@ -17,17 +17,6 @@ Antes de começar, verifique se você atende aos seguintes requisitos:
 - [npm](https://www.npmjs.com/): É necessário ter o npm (gerenciador de pacotes do Node.js) instalado.
 
 ## Instalação
-
-```bash
-```    
-```bash
-```
-    
-```bash
-```
-    
-
-
     
 Siga estas etapas para instalar e executar o projeto:
 
