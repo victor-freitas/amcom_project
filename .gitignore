@@ -151,3 +151,4 @@ my_api_test/
 
 .env.worker.database
 .env.worker
+db.sqlite3
