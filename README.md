@@ -18,6 +18,17 @@ Antes de começar, verifique se você atende aos seguintes requisitos:
 
 ## Instalação
 
+```bash
+```    
+```bash
+```
+    
+```bash
+```
+    
+
+
+    
 Siga estas etapas para instalar e executar o projeto:
 
 1. Clone o repositório:
@@ -26,10 +37,32 @@ Siga estas etapas para instalar e executar o projeto:
 git clone git@github.com:victor-freitas/amcom_project.git
 
 ```
-
+2. Ative a venv
+```bash
+    source venv/bin/activate
+```
+3. Instale os requirements
+```bash
+    pip3 install -r requirements.txt
+```
+4. Faça as migrations
+```bash
+    make makemigrations
+    make migrate
+```
+5. Criar um superuser
+```bash
+    make createsuperuser
+```
+6. Rodar a aplicação do django para API
+```bash
+    make runserver
+```
+    
 
 Uso
 Acesse a aplicação em seu navegador:
 
 Front-end: http://localhost:3000/
 API Django: http://localhost:8080/api/
+Django admin: http://localhost:8080/admin/

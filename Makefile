@@ -4,7 +4,7 @@ migrate:
 makemigrations:
 	python3 manage.py makemigrations
 
-run:
+runserver:
 	python3 manage.py runserver 8080
 
 createsuperuser:
