@@ -39,6 +39,7 @@ git clone git@github.com:victor-freitas/amcom_project.git
 ```
 2. Ative a venv
 ```bash
+    python3 -m venv venv
     source venv/bin/activate
 ```
 3. Instale os requirements
