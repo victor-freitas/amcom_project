@@ -58,6 +58,25 @@ git clone git@github.com:victor-freitas/amcom_project.git
 ```bash
     make runserver
 ```
+7. Pasta frontend
+```bash
+    cd sales_controller/frontend/
+```
+8. Install nvm
+```bash
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+    nvm install 16
+    nvm use 16
+```
+9. Install react-scripts
+```bash
+    npm install --save-dev react-scripts
+```
+10. Se tiver problemas com instalação remover a pasta node_modules e o arquivo package-lock.json:
+```bash
+    rm -rf node_modules package-lock.json
+    npm install
+```
     
 
 Uso
