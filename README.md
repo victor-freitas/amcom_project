@@ -71,12 +71,15 @@ git clone git@github.com:victor-freitas/amcom_project.git
 ```
 9. Install react-scripts
 ```bash
-    npm install --save-dev react-scripts
+    npm install --save-dev react-scripts --force
 ```
 10. Se tiver problemas com instalação remover a pasta node_modules e o arquivo package-lock.json:
 ```bash
+    
     rm -rf node_modules package-lock.json
-    npm install
+    npm cache clean -f
+    npm install --force
+    npm install --save-dev react-scripts --force
 ```
 11. Para rodar o frontend
 ```bash
