@@ -77,6 +77,10 @@ git clone git@github.com:victor-freitas/amcom_project.git
     rm -rf node_modules package-lock.json
     npm install
 ```
+11. Para rodar o frontend
+```bash
+    npm start
+```
     
 
 Uso
