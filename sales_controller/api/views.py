@@ -112,10 +112,11 @@ class SellerCommissionViewSet(APIView):
                         'id': seller_id,
                         'name': seller_name,
                         'total_sales': 0,
-                        'total_commission': total_commission
+                        'total_commission': Decimal('0.00')
                     }
 
                 seller_data[seller_name]['total_sales'] += 1
+                seller_data[seller_name]['total_commission'] += total_commission
 
             result = list(seller_data.values())
 
