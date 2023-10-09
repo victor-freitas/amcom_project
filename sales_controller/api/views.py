@@ -4,7 +4,7 @@ from rest_framework import viewsets, status
 from rest_framework.decorators import action
 from sales_controller.api import models, serializers
 from rest_framework.views import APIView
-from decimal import Decimal
+from decimal import Decimal, ROUND_HALF_UP
 from contextlib import suppress
 
 
@@ -95,22 +95,27 @@ class SellerCommissionViewSet(APIView):
                 commission_settings = sale.commission_settings
 
                 if commission_settings:
-                    min_commission = commission_settings.min_commission
-                    max_commission = commission_settings.max_commission
-                    item_commission = amount * min_commission / 100
-                    item_commission = amount * max_commission / 100
-                    total_commission += item_commission
+                    min_commission = Decimal(str(commission_settings.min_commission))
+                    max_commission = Decimal(str(commission_settings.max_commission))
+                    total_price = Decimal(str(amount))
+
+                    if total_price <= Decimal('500'):
+                        commission_rate = min_commission / Decimal('100')
+                    else:
+                        commission_rate = max_commission / Decimal('100')
+
+                    commission = (total_price * commission_rate).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
+                    total_commission += commission
 
                 if seller_name not in seller_data:
                     seller_data[seller_name] = {
                         'id': seller_id,
                         'name': seller_name,
                         'total_sales': 0,
-                        'total_commission': Decimal('0.00')
+                        'total_commission': total_commission
                     }
 
                 seller_data[seller_name]['total_sales'] += 1
-                seller_data[seller_name]['total_commission'] += total_commission
 
             result = list(seller_data.values())
 
